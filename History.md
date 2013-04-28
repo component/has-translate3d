@@ -1,10 +1,10 @@
 
-0.0.2 / 2013-04-05
-==================
+0.0.2
+=====
 
-  * index: fix computed style lookeup
+  * add dasherize option
 
-0.0.1 / 2013-04-04
-==================
+0.0.1
+=====
 
   * initial release
