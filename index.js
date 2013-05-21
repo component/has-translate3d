@@ -1,6 +1,7 @@
 
 var prop = require('transform-property');
-if (!prop) return module.exports = false;
+// IE8<= doesn't have `getComputedStyle`
+if (!prop || !window.getComputedStyle) return module.exports = false;
 
 var map = {
   webkitTransform: '-webkit-transform',
@@ -14,6 +15,6 @@ var map = {
 var el = document.createElement('div');
 el.style[prop] = 'translate3d(1px,1px,1px)';
 document.body.insertBefore(el, null);
-var val = window.getComputedStyle(el).getPropertyValue(map[prop]);
+var val = getComputedStyle(el).getPropertyValue(map[prop]);
 document.body.removeChild(el);
 module.exports = null != val && val.length && 'none' != val;
